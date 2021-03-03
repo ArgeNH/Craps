@@ -39,54 +39,20 @@ public class ListedCircled<T> {
 		return null;
 	}
 	
-	/*public void addEnd(T info) {
-		Node<T> node=new Node<T>(info);
-		if(isEmpty()){
-			head=node;
-			head.setNext(node);
-		}else {
-			node.setNext(head.getNext());
-			head.setNext(node.getNext());
-			node=head.getNext();
-			
-		}
-	}*/
-	
-	
 	public void addEnd(T info)	{
 		Node<T> node= new Node<T>(info);
 		if (isEmpty()) {
-			
 			head.setNext(node);
 			head.setBefore(node);
-			
 		}else {
 		    node.setNext(head.getNext());
 			head.getNext().setBefore(node);
 			head.setNext(node);
 			node.setBefore(head);
 			head=node;
-			
 		}
-		
 	}
-	 
-	
-	
 
-	
-	/*public Node<T> deleteNode(Node<T> node) {
-		Node<T> aux=head;
-		do {
-			if(aux.getNext()==node) {
-				aux.setNext(node.getNext());
-				return node;
-			}
-			aux=aux.getNext();
-		} while (aux!=head);
-		return null;
-	}*/
-	  
 	public Node<T> deleteNode(Node<T> node){
 		Node<T> aux=head;
 		do{
@@ -99,13 +65,11 @@ public class ListedCircled<T> {
 					aux.setNext(node.getNext());
 					return node;
 				}
-				
 			}
 			aux=aux.getNext();
 		}while(aux!=head);
 		return null;
 	}
-	 
 	
 	public void addSorted(T info) {
 		Node<T> node=new Node<T>(info);
@@ -123,14 +87,12 @@ public class ListedCircled<T> {
 				while(comparator.compare(info, act.getNext().getInfo())>0) {
 					act=act.getNext();
 				}
-				
 			}
 		}
 	}
 	
 	public T findObject(T info) {
 		Node<T> node=head;
-		
 		do {
 			if(comparator.compare(node.getInfo(),info)==0) {
 				return node.getInfo();
@@ -158,9 +120,6 @@ public class ListedCircled<T> {
 			}
 			node=node.getNext();
 		}
-		
 		return null;
 	}
 }
-	
-
